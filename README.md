@@ -184,7 +184,6 @@ services:
       - traefik
     volumes:
       - "$DOCKERDIR/apps/authentik/media:/media"
-      - "$DOCKERDIR/apps/traefik/cert_export:/certs:ro"
       - "$DOCKERDIR/apps/authentik/custom-templates:/templates"
       - "$DOCKERDIR/apps/authentik/geoip/data:/geoip"
     environment:
