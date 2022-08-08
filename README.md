@@ -5,6 +5,8 @@ This guide assumes that there is a working Traefik v2.7+ running and that the Tr
 
 Additionally, I am NOT allowing Authentik to view the Docker socket and auto create providers.  
 
+Lastly, @deathnmind (https://github.com/deathnmind) and I wrote this for `mkdocs`.  That means the `???+` you see thorughout this document are meant to be collapsible admonitions (https://squidfunk.github.io/mkdocs-material/reference/admonitions/#collapsible-blocks).  I'll look at making this something nicer for GitHub soon.  
+
 ## DNS Record  
 Ensure that a DNS record exists for `authentik.domain.tld` as the compose and all material here assumes that will be the record name.  
 
@@ -16,6 +18,10 @@ Authentik's developer has an initial docker compose setup guide and `docker-comp
     https://goauthentik.io/docker-compose.yml   
 
 In order for the forwardAuth to make sense, I've modified the provided docker-compose.yml and added the appropriate Traefik labels.  I am also using docker secrets in order to protect sensitive information.  
+
+???+ info 
+    I am using "fake" docker secrets and binding them into the compose instead of saving sensitive data in environment variables.  You can remove the secrets section and work with regular environment variables if that makes more sense for your environment.  This is strictly a working example, hopefully with enough documentation to help anyone else that might be stuck.  
+
 
 First create an environment variable file `.env` in the same directory as the `docker-compose.yml` with the following information, ensuring to update everywhere that has a **CHANGEME** to match your environment. If you want, these values can all be manually coded into the `docker-compose.yml` instead of having a separate file.  
 
@@ -317,12 +323,12 @@ With Authentik being reverse proxied through Traefik and the middleware showing 
 - Navigate to Authentik at `https://authentik.domain.tld/if/flow/initial-setup/`  
 - Login to Authentik to begin setup.  
 ???+ note "First time setup"  
-    If this is the first time logging in you will have to set the password for `akaadmin` (default user).  
+    If this is the first time logging in you will have to set the password for `akadmin` (default user).  
     **NOTE**: If establishing the default credentials fails - the setup is not working correctly.  
 
 ![](./images/authentik-setup.png)  
 
-After successful login to the `akaadmin` user to Authentik open the `Admin Interface` clicking the button in the upper right.  
+After successful login to the `akadmin` user to Authentik open the `Admin Interface` clicking the button in the upper right.  
 
 ![](./images/admin-interface-button.png)  
 
