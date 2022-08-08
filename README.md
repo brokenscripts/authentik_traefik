@@ -173,8 +173,6 @@ services:
       ## HTTP Services
       - "traefik.http.routers.authentik-rtr.service=authentik-svc"
       - "traefik.http.services.authentik-svc.loadBalancer.server.port=9000"
-      ## Watchtower
-      - "com.centurylinklabs.watchtower.enable=true"
 
 
   authentik_worker:
