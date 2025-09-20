@@ -58,7 +58,7 @@ services:
 
   # Use the embedded outpost (2021.8.1+) instead of the seperate Forward Auth / Proxy Provider container
   authentik_server:
-    image: ghcr.io/goauthentik/server:latest
+    image: ghcr.io/goauthentik/server:2025.8.3
     container_name: authentik_server
     restart: unless-stopped
     command: server
@@ -104,7 +104,7 @@ services:
 
 
   authentik_worker:
-    image: ghcr.io/goauthentik/server:latest
+    image: ghcr.io/goauthentik/server:2025.8.3
     container_name: authentik_worker
     restart: unless-stopped
     # Removing `user: root` also prevents the worker from fixing the permissions
