@@ -10,6 +10,3 @@ http:
     # Compress to save bandwidth
     middlewares-compress:
       compress: {}
-
------------------------
- middlewares-https-redirectscheme.yaml
