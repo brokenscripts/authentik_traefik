@@ -99,7 +99,7 @@ services:
     volumes:
       - "./authentik/redis:/data"
 
-  # Use the embedded outpost (2021.8.1+) instead of the seperate Forward Auth / Proxy Provider container
+  # Use the embedded outpost (2021.8.1+) instead of the separate Forward Auth / Proxy Provider container
   authentik_server:
     image: ghcr.io/goauthentik/server:latest
     container_name: authentik_server
@@ -280,7 +280,7 @@ AUTHENTIK_EMAIL__FROM=file:///run/secrets/gmail_smtp_username
 # GeoIP ( https://github.com/maxmind/geoipupdate)  
 # Environment Variables (https://github.com/maxmind/geoipupdate/blob/main/doc/docker.md)  
 ################################################################  
-GEOIPUPDATE_EDITION_IDS="GeoLite2-City GeoLite2-ASN" # Space seperated 
+GEOIPUPDATE_EDITION_IDS="GeoLite2-City GeoLite2-ASN" # Space separated 
 GEOIPUPDATE_FREQUENCY=8 # Frequency to check for updates, in hours
 GEOIPUPDATE_ACCOUNT_ID_FILE=/run/secrets/geoip_account_id
 GEOIPUPDATE_LICENSE_KEY_FILE=/run/secrets/geoip_license_key
@@ -606,7 +606,7 @@ In the current version, for this documentation `2024.6.0`, Authentik now include
 I am going to set up my `Individual Application` manually and the `Domain Wide / Catch All` using the Wizard.  ONLY to show how you can do either method, both work!  
 
 > [!NOTE]
-> I am using the embedded outpost.  The embedded outpost requires version `2021.8.1` or newer. This prevents needing the seperate Forward Auth / Proxy Provider container.
+> I am using the embedded outpost.  The embedded outpost requires version `2021.8.1` or newer. This prevents needing the separate Forward Auth / Proxy Provider container.
 
 > [!WARNING]
 > Individual applications have a higher priority than the catch all, so you can set up both!
